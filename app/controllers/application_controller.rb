@@ -24,7 +24,7 @@ class ApplicationController < Sinatra::Base
 
     def redirect_if_not_logged_in
       if !logged_in?
-        "Sorry it looks like your not logged in!"
+        puts "Sorry it looks like your not logged in!"
         redirect to '/users/login'
       end
     end
