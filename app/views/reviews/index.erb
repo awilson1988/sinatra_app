@@ -1,0 +1,9 @@
+<h1>Book Nook</h1>
+
+<% @reviews.each do |review| %>
+  <div>
+    
+    <p>Created by: <%= review.user.username %></p>
+    <p>Review Score: <%= review.review_score %></p>
+  </div>
+<% end %>

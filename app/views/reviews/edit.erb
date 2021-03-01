@@ -5,4 +5,13 @@
 <form action="/reviews/<%= @review.id %>" method= "Post"> 
     <input type="hidden" id="hidden" name="_method" value="patch" 
 
-    <label for=""
+    <label for="book_name">Book Name:</label> 
+       <select name="book_name"> 
+          <% @books.each do |book| %>
+             <option value="<%= book.name %>"><%= book.name %></option>
+      <% end %>
+    </select>
+  Or, enter a new Book
+    <input type="text" name="new_book_name">
+  
+</form>
