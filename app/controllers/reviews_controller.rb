@@ -1,49 +1,24 @@
 class ReviewsController < ApplicationController
-    get '/reviews' do
-      redirect_if_not_logged_in
-  
-      @user = current_user
-      session[:user_id] = @user.id
-      @reviews = Review.all
-      erb :'/reviews/index'
+    get '/reviews/index' do
+      @reviews = Review.all 
+      erb :'review/index'
     end
   
     get '/reviews/new' do
-      redirect_if_not_logged_in
-  
-      @books = Book.all
       erb :'/reviews/new'
     end
   
     post '/reviews' do
-      if params[:new_book_name].empty?
-        @book = Book.find_or_create_by(name: params[:book_name])
-      else
-        @book = Book.find_or_create_by(name: params[:new_book_name])
-      end
-  
-      @review = review.new
-      @user = current_user
-      @review.user_id = @user.id
-      @review.book_id = @book.id
+      @review = Review.new(params) 
+      @review.user_id = session[:user_id] 
       @review.save
-  
-      flash[:error] = "You have successfully created the review."
-      redirect to "/reviews/#{@review.id}"
-  
-      if @review.invalid?
-        flash[:error] =  "Oops! Make sure to fill out all criteria!"
-        erb :'/users/show'
-      end
+      redirect "/reviews/#{@review.id}" 
+      
     end
   
     get '/reviews/:id' do
-      redirect_if_not_logged_in
-  
-      @user = current_user
-      @review = Review.find_by_id(params[:id])
-      @book = Book.find_by_id(@review.book_id)
-      erb :'/reviews/show'
+      get_review 
+      erb :'review/show'
     end
   
     get '/reviews/:id/edit' do

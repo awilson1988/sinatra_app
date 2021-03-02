@@ -2,14 +2,16 @@
 
 <h2>Add New Review</h2>
 
-<form action="/reviews" method="POST">
-  <label for="book_name">Book Name:</label>
-    <select name="book_name">
-      <% @books.each do |book| %>
-        <option value="<%= book.name %>"><%= book.name %></option>
-      <% end %>
-    </select>
-  Or, enter a new Book
-    <input type="text" name="new_book_name">
-  
+<form action="/review" method="post">
+Title of Book: <input type=text name="title" >
+Author: <input type=text name="author" >
+<div>
+<br>
+Comments:  
+<textarea rows = "5" cols = "50" name = "description">
+Your thoughts on the book...
+</textarea>
+<br>
+<input type=submit value="Submit Review" >
+<br>
 </form>
