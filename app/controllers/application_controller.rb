@@ -1,6 +1,9 @@
-require './config/environment'
+require './config/environment' 
+require 'rack-flash'
+
 
 class ApplicationController < Sinatra::Base
+  use 'Rack::Flash'
 
   configure do
     set :public_folder, 'public'
@@ -23,8 +26,8 @@ class ApplicationController < Sinatra::Base
     end
 
     def redirect_if_not_logged_in
-      if logged_in?
-        puts "Sorry it looks like your not logged in!"
+      if !logged_in?
+        flash[:message] = "Sorry it looks like your not logged in!"
         redirect to '/users/login'
       end
     end

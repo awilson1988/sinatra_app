@@ -28,11 +28,11 @@ class ReviewsController < ApplicationController
       @review.book_id = @book.id
       @review.save
   
-      puts "You have successfully created the review."
+      flash[:message] = "You have successfully created the review."
       redirect to "/reviews/#{@review.id}"
   
       if @review.invalid?
-        puts "Oops! Make sure to fill out all criteria!"
+        flash[:message] =  "Oops! Make sure to fill out all criteria!"
         erb :'/users/show'
       end
     end
@@ -65,7 +65,7 @@ class ReviewsController < ApplicationController
       @book = Book.find_by_id(@review.book_id)
   
       if @review.invalid?
-        puts "Oops! Make sure to fill out all criteria!"
+        flash[:message] =  "Oops! Make sure to fill out all criteria!"
         erb :'/reviews/edit'
       else
         if @review && @review.user == current_user
@@ -76,7 +76,7 @@ class ReviewsController < ApplicationController
           end
   
           @review.update( book_id: @book.id, user_id: current_user.id)
-          puts "Review successfully updated."
+          flash[:message] =  "Review successfully updated."
           redirect to "/reviews/#{params[:id]}"
         else
           redirect to '/reviews'
