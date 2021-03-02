@@ -12,13 +12,5 @@
 <h2>Add a new Review!</h2>
 
 <form action="/review" method="POST">
-  <label for="book_name">Book Name:</label>
-    <select name="book_name">
-      <% @books.each do |book| %>
-        <option value="<%= book.name %>"><%= book.name %></option>
-      <% end %>
-    </select>
-  Or, enter a new book
-    <input type="text" name="new_book_name">
   
 </form>
