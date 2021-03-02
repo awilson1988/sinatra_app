@@ -1,14 +1,15 @@
 class ReviewsController < ApplicationController
-    get '/reviews/index' do
+    get '/reviews' do
       @reviews = Review.all 
       erb :'review/index'
     end
   
     get '/reviews/new' do
-      erb :'/reviews/new'
+      erb :'reviews/new'
     end
   
     post '/reviews' do
+      binding.pry
       @review = Review.new(params) 
       @review.user_id = session[:user_id] 
       @review.save
