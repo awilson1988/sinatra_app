@@ -12,6 +12,6 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem 'faker'
-gem 'rack-flash3'
+
 
 
