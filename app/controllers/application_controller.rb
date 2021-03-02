@@ -1,15 +1,15 @@
 require './config/environment' 
-require 'rack-flash'
 
 
 class ApplicationController < Sinatra::Base
-  use 'Rack::Flash'
+
 
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "secret"
+    register Sinatra::Flash
   end
 
   get "/" do
@@ -22,12 +22,12 @@ class ApplicationController < Sinatra::Base
     end
 
     def logged_in?
-       current_user
+      !!session[:author_id]
     end
 
     def redirect_if_not_logged_in
       if !logged_in?
-        flash[:message] = "Sorry it looks like your not logged in!"
+        flash[:error] = "Sorry it looks like your not logged in!"
         redirect to '/users/login'
       end
     end
