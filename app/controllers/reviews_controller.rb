@@ -18,9 +18,14 @@ class ReviewsController < ApplicationController
     end
   
     get '/reviews/:id' do
-      get_review
-      erb :'reviews/show'
-    end
+      redirect_if_not_logged_in
+
+    @user = current_user
+    @review = Review.find_by_id(params[:id])
+    @book = Book.find_by_id(@review.book_id)
+    erb :'/reviews/show'
+    
+  end
   
     get '/reviews/:id/edit' do
       redirect_if_not_logged_in

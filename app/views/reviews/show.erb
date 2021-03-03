@@ -1,3 +1,17 @@
 <h1>Book Nook</h1>
 
 
+<div>
+  <h3><a href="/books/<%= @book.id %>"><%= @book.name %></a> Review</h3>
+  <br>
+  <p>Review:
+  <br>
+  <p>Review Created by: <%= @user.username %></p>
+</div>
+
+<button type="submit" value="submit"><a href="/books/<%= @review.id %>/edit">Edit Review</a></button>
+
+<form action="/reviews/<%= @review.id %>/delete" method="POST">
+  <input type="hidden" id="hidden" name="_method" value="DELETE">
+  <button type="submit" value="submit">Delete Review</button>
+</form>
