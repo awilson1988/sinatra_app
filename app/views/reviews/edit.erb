@@ -3,15 +3,17 @@
 <h2>Edit your Book review:</h2> 
 
 <form action="/reviews/<%= @review.id %>" method= "Post"> 
-    <input type="hidden" id="hidden" name="_method" value="patch" 
+    <input type="hidden" name="_method" value="patch"> 
 
-    <label for="book_name">Book Name:</label> 
-       <select name="book_name"> 
-          <% @books.each do |book| %>
-             <option value="<%= book.name %>"><%= book.name %></option>
-      <% end %>
-    </select>
-  Or, enter a new Book
-    <input type="text" name="new_book_name">
-  
+Title of Book: <input type=text name="title" value="<%= @review.title %>">
+Author: <input type=text name="author" >
+<div>
+<br>
+Comments:  
+<textarea rows = "5" cols = "50" name = "comments">
+Your thoughts on the book...
+</textarea>
+<br>
+<input type="submit" value="Submit Review" >
+<br>
 </form>
