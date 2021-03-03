@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     end
   
     post '/reviews' do
-      binding.pry
+    
       @review = Review.new(params) 
       @review.user_id = session[:user_id] 
       @review.save
@@ -18,8 +18,8 @@ class ReviewsController < ApplicationController
     end
   
     get '/reviews/:id' do
-      get_review 
-      erb :'review/show'
+      get_review
+      erb :'reviews/show'
     end
   
     get '/reviews/:id/edit' do
