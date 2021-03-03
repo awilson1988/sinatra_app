@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   end
 
   get '/users/:id' do
-    @user = User.find_by_id(params[:id])
+    @user = User.find_by(id:params[:id])
     @books = Book.all
     erb :'/users/show'
   end

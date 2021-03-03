@@ -25,9 +25,6 @@ class ReviewsController < ApplicationController
     get '/reviews/:id/edit' do
       @review = Review.find_by(id:params[:id])
         erb :'reviews/edit'
-      else
-        redirect to "/reviews/#{params[:id]}"
-      end
     end
   
     patch '/reviews/:id' do
@@ -44,4 +41,4 @@ class ReviewsController < ApplicationController
         redirect to "/reviews"
       end
     end
-  end
+  
