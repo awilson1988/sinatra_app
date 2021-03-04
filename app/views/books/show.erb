@@ -1,11 +1,13 @@
 <h1>Book Nook</h1>
 
-<h2><%= @book.name %></h2>
+<h2><%= @book.title %></h2>
 <br>
 <h4>Number of Reviews: <%= @books.users.size %></h4>
 <br>
 <h3>Reviews:</h3>
   <% @book.reviews.each do |review| %>
     <h4><%= review.user.username %></h4>
-    <p>Review: <%= review.review_score %></p>
+<br>
+    <input type="submit" value="Add a Review" >
+<br>
   <% end %>
