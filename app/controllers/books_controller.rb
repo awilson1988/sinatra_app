@@ -1,10 +1,5 @@
 class BooksController < ApplicationController
     get '/books' do
-      redirect_if_not_logged_in
-      
-      @user = current_user
-      session[:user_id] = @user.id
-      @books = Book.all
       erb :'/books/index'
     end
   

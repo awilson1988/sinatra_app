@@ -4,7 +4,7 @@
 
 <h3>Review(s):</h3>
   <% @user.reviews.each do |review| %>
-    <h4><a href="/review/<%= review.id %>"> <%= review.title %></h4></a>
+    <h4><a href="/reviews/<%= review.id %>"> <%= review.title %></h4></a>
   <% end %>
 
 <br>

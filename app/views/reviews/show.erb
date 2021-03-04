@@ -6,12 +6,10 @@
   <br>
   <p>Title of Book: <%= @review.title %></p>
   <br>
+  <p>Author: <%= @review.author
+  <br> 
+  <p>Comments: <%= @review.comments 
+  <br>
   <p>Review Created by: <%= @user.username %></p>
 </div>
 
-<button type="submit" value="submit"><a href="/books/<%= @review.id %>/edit">Edit Review</a></button>
-<a href="/reviews/<%= @review.id %>/edit">Edit Review</a>
-<form action="/reviews/<%= @review.id %>/delete" method="POST">
-  <input type="hidden" id="hidden" name="_method" value="DELETE">
-  <button type="submit" value="submit">Delete Review</button>
-</form>
