@@ -12,6 +12,8 @@ class ApplicationController < Sinatra::Base
     register Sinatra::Flash
   end
 
+  puts "hello"
+
   get "/" do
     erb :welcome
   end
