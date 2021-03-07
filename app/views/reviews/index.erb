@@ -3,7 +3,7 @@
 <% @reviews.each do |review| %>
  
     <p>Created by: <%= reviews.user.username %> <a href="/reviews/<%= reviews.id %>/edit</a> </p>
-    <p>Title of Book: <%= review.review.title %></p> 
+    <p>Title of Book: <%= review.title %></p> 
     <p>Author of Book: <%= reviews.review.author %></p>
     <p>Review Comments: <%= reviews.review_comments %></p>
   

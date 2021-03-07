@@ -1,19 +1,7 @@
 <h1>Book Nook</h1>
 
+<%@reviews.each do |r| %>
 
+<p> <%=@reviews.title%> </p>
 
-  <br>
-  <p>Title of Book: <%=@review.title%></p>
-  <br>
-  <p>Author: <%=@review.author%></p>
-  <br> 
-  <p>Comments: <%=@review.comments%></p>
-  <br>
-
-  <a href="/reviews/<%= @review.id %>/edit">Edit Review</a>
-
-  <form action="/reviews/<%= @review.id %>" method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete Review">
-  </form>
-
+<%end%>
