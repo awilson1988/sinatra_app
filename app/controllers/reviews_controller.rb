@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
     get '/reviews/:id/edit' do
       @review = Review.find_by(id:params[:id])
       if @review.author == current_user
-        erb :'reviews/edit'
+      erb :'reviews/edit'
     end
   
     patch '/reviews/:id' do
@@ -36,8 +36,8 @@ class ReviewsController < ApplicationController
   
      
   
-    delete '/reviews/:id/delete' do
-        @review = Review.find_by(id:params[:id])
+    delete '/reviews/:id' do
+       @review = Review.find_by(id:params[:id])
         @review.destroy
         redirect to "/reviews"
       end

@@ -2,7 +2,7 @@
 
 <h2>Edit your Book review:</h2> 
 
-<form action="/reviews/<%= @review.id %>" method= "Post"> 
+<form action="/reviews/<%= @review.id %>" method= "post"> 
     <input type="hidden" name="_method" value="patch"> 
 
 Title of Book: <input type=text name="title" value="<%= @review.title %>">
@@ -14,6 +14,6 @@ Comments:
 Your thoughts on the book...
 </textarea>
 <br>
-<input type="submit" value="Submit Review" >
+<input type="submit" value="Edit Review" >
 <br>
 </form>

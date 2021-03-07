@@ -10,8 +10,10 @@
   <p>Comments: <%= @review.comments %></p>
   <br>
 
-  <a href="/reviews/:id"><button>Edit Review</button></a> 
+  <a href="/reviews/<%= @review.id %>/edit">Edit Review</a>
 
-  <a href="/reviews/:id/delete"><button>Delete Review</button></a>
-</div>
+  <form action="/reviews/<%= @review.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Post">
+</form>
 
