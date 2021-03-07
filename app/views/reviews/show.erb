@@ -1,19 +1,19 @@
 <h1>Book Nook</h1>
 
 
-<div>
+
   <br>
-  <p>Title of Book: <%= @review.title %></p>
+  <p>Title of Book: <%=@review.title%></p>
   <br>
-  <p>Author: <%= @review.author %></p>
+  <p>Author: <%=@review.author%></p>
   <br> 
-  <p>Comments: <%= @review.comments %></p>
+  <p>Comments: <%=@review.comments%></p>
   <br>
 
   <a href="/reviews/<%= @review.id %>/edit">Edit Review</a>
 
-  <form action="/reviews/<%= @review.id %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete Post">
-</form>
+  <form action="/reviews/<%= @review.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Review">
+  </form>
 

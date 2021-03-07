@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
     get '/reviews' do
       @reviews = Review.all 
-      erb :'review/index'
+      erb :'reviews/index'
     end
   
     get '/reviews/new' do
@@ -24,22 +24,21 @@ class ReviewsController < ApplicationController
 
     get '/reviews/:id/edit' do
       @review = Review.find_by(id:params[:id])
-      if @review.author == current_user
       erb :'reviews/edit'
     end
   
     patch '/reviews/:id' do
-      @review = Review.find_by(id:params[:id])
-      @review.update(title: params[:title], comments: params[:comments])
-      redirect "/reviews/#{@review.id}"
+      review = Review.find_by(id:params[:id])
+      review.update(title: params[:title], author: params[:author], comments: params[:comments])
+      redirect "/reviews/#{review.id}"
     end 
   
      
   
     delete '/reviews/:id' do
-       @review = Review.find_by(id:params[:id])
-        @review.destroy
+        @review = Review.find_by(id:params[:id])
+        @review.delete
         redirect to "/reviews"
       end
     end
-  end
+  

@@ -2,18 +2,37 @@
 
 <h2>Edit your Book review:</h2> 
 
-<form action="/reviews/<%= @review.id %>" method= "post"> 
-    <input type="hidden" name="_method" value="patch"> 
+<form action="/reviews/<%=@review.id%>" method= "POST">
+    <input type="hidden" name="_method" value="PATCH">
+    Title of Book: <input type=text name="title" >
+    Author: <input type=text name="author" >
+    <div>
+    <br>
+    Comments:  
+    <textarea rows = "5" cols = "50" name = "description">
+    Your thoughts on the book...
+    </textarea>
+    <br>
+    <input type=submit value="Submit Review" >
+    <br>
+    </form>
 
-Title of Book: <input type=text name="title" value="<%= @review.title %>">
-Author: <input type=text name="author" >
-<div>
-<br>
-Comments:  
-<textarea rows = "5" cols = "50" name = "comments">
-Your thoughts on the book...
-</textarea>
-<br>
-<input type="submit" value="Edit Review" >
-<br>
-</form>
+
+
+
+
+
+
+#     <p>Title of Book: <input type=text name="title" value="<%= @review.title %>"></p>
+#     <p>Author: <input type=text name="author" ></p>
+#     <div>
+#         <br>
+#         <p>Comments:</p>  
+#         <textarea rows = "5" cols = "50" name = "comments">
+#             <p>Your thoughts on the book...</p>
+#         </textarea>
+#         <br>
+#         <input type="submit" value="Edit Review" >
+#         <br>
+#     </div>
+# </form>
