@@ -24,6 +24,7 @@ class ReviewsController < ApplicationController
 
     get '/reviews/:id/edit' do
       @review = Review.find_by(id:params[:id])
+      if @review.author == current_user
         erb :'reviews/edit'
     end
   
@@ -41,4 +42,4 @@ class ReviewsController < ApplicationController
         redirect to "/reviews"
       end
     end
-  
+  end
