@@ -1,9 +1,10 @@
 <h1>Book Nook</h1>
 
 <h2><%= @book.title %></h2>
+<h4><a href="<%=@user.id%>/edit">Edit your profile</h4></a>
 <br>
-<h4>Number of Reviews: <%= @books.users.size %></h4>
 <br>
+
 <h3>Reviews:</h3>
   <% @book.reviews.each do |review| %>
     <h4><%= review.user.username %></h4>

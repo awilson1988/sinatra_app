@@ -1,44 +1,25 @@
-class ReviewsController < ApplicationController
+class ReviewsController < ApplicationController    
   
-  get '/reviews' do
-    @reviews = Review.all 
-    erb :'reviews/index'
+  #render form to edit review
+  get '/reviews/:id/edit' do
+    @review = Review.find_by(id:params[:id])
+    erb :'reviews/edit'
   end
   
-    get '/reviews/new' do
-      erb :'reviews/new'
-    end
-    
-    get '/reviews/:id' do
-      @reviews = Review.find_by(id:params[:id])
-      erb :'reviews/show'
-    end
-    
-      post '/reviews' do
-        review = Review.new(params) 
-        review.user_id = session[:user_id] 
-        review.save
-        redirect "/reviews/#{review.id}" 
-        
-      end
+  #updates review
+  patch '/books/:id' do
+    book = Book.find_by(id:params[:id])
+    review = Review.find_by(id:params[:id])
+    review.update(comments: params[:comments])
+    redirect "/books/#{book.id}"
+  end 
 
-    get '/reviews/:id/edit' do
-      @review = Review.find_by(id:params[:id])
-      erb :'reviews/edit'
-    end
-  
-    patch '/reviews/:id' do
-      review = Review.find_by(id:params[:id])
-      review.update(title: params[:title], author: params[:author], comments: params[:comments])
-      redirect "/reviews/#{review.id}"
-    end 
-  
-     
-  
+  #deletes review
   delete '/reviews/:id' do
+    book = Book.find_by(id:params[:id])
     review = Review.find_by(id:params[:id])
     review.delete
-    redirect "/reviews"
+    redirect "/books/#{book.id}"
   end
 
 end 

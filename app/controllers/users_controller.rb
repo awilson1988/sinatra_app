@@ -33,11 +33,11 @@ class UsersController < ApplicationController
     erb :'/users/show'
   end
 
-  #renders form to edit user
-  get '/users/:id/edit' do 
-    @user = User.find_by(id: params[:id])
-    erb :'/users/edit'
-  end
+    #renders form to edit user
+    get '/users/:id/edit' do 
+      @user = User.find_by(id: params[:id])
+      erb :'/users/edit'
+    end
 
   #updates user
   patch '/users/:id' do
