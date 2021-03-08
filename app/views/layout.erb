@@ -18,7 +18,6 @@
   <nav>
         <%if logged_in?%>
         <a href="/users/<%= current_user.id %>"><button>My Reviews</button></a>
-        <a href="/reviews/new"><button>Add a Review</button></a>
         <a href="/books"><button>Review a New Book</button></a>
         <a href="/logout"><button>Log Out</button></a>
         <%end%>

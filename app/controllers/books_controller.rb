@@ -34,13 +34,14 @@ class BooksController < ApplicationController
 
   #updates book
   patch '/books/:id' do
-    @book.update(title: params[:title], comments: params[:comments]
+    @book.update(title: params[:title], comments: params[:comments])
     redirect "/books/#{book.id}"
 end
 
   #deletes existing user
   delete '/books/:id' do
-    @post.destroy 
+    book = Book.find_by(id:params[:id])
+    book.delete 
     redirect "/books/#{book.id}"
   end
 
