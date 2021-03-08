@@ -16,10 +16,11 @@ class ReviewsController < ApplicationController
 
   #deletes review
   delete '/reviews/:id' do
+    user = current_user
     book = Book.find_by(id:params[:id])
     review = Review.find_by(id:params[:id])
     review.delete
-    redirect "/books/#{book.id}"
+    redirect "/users/#{user.id}"
   end
 
 end 
