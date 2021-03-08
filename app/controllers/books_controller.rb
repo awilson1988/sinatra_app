@@ -1,11 +1,17 @@
 class BooksController < ApplicationController  
   #render form to create books
   get '/books/new' do
+    erb :'/books/new'
   end
    
   #create books
   post '/books' do
+   @book = Book.new(params) 
+   @book.user_id = session[:user_id] 
+   @book.save
+   redirect '/books/#{@book.id}' 
   end
+  
 
   #show all books
   get '/books' do
@@ -21,14 +27,19 @@ class BooksController < ApplicationController
     
   #renders form to edit book
     get '/books/:id/edit' do 
+      erb :'/books/edit'
   end
 
   #updates book
   patch '/books/:id' do
+    @book.update(title: params[:title], comments: params[:comments]
+    redirect '/books/#{@book.id}'
   end
 
   #deletes existing user
   delete '/books/:id' do
+    @post.destroy 
+    redirect '/books/#{@book.id}'
   end
 
 

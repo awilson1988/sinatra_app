@@ -13,6 +13,7 @@ class Sessions_Controller < ApplicationController
       end
     end
   
+  
     get '/logout' do
       if logged_in?
         session.clear
@@ -21,6 +22,7 @@ class Sessions_Controller < ApplicationController
         redirect '/'
       end
     end
-  
-  
   end
+  
+  
+  
