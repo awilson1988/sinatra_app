@@ -9,7 +9,7 @@ class BooksController < ApplicationController
    @book = Book.new(params) 
    @book.user_id = session[:user_id] 
    @book.save
-   redirect '/books/#{@book.id}' 
+   redirect '/books' 
   end
   
 
@@ -33,13 +33,13 @@ class BooksController < ApplicationController
   #updates book
   patch '/books/:id' do
     @book.update(title: params[:title], comments: params[:comments]
-    redirect '/books/#{@book.id}'
+    redirect '/books'
   end
 
   #deletes existing user
   delete '/books/:id' do
     @post.destroy 
-    redirect '/books/#{@book.id}'
+    redirect '/books'
   end
 
 
