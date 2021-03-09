@@ -4,7 +4,9 @@
 
 <br>
 
-<p>Title <%= @book.title %></p>
+<p>Title: <%= @book.title %></p>
+<p>Author: <%= @book.author %></p> 
+<p>Summary: <%= @book.summary %></p>
 
 <h3>Reviews:</h3>
   <% @book.reviews.each do |review| %>
