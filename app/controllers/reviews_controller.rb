@@ -7,11 +7,11 @@ class ReviewsController < ApplicationController
   end
   
   #updates review
-  patch '/books/:id' do
+  patch '/reviews/:id' do
     book = Book.find_by(id:params[:id])
     review = Review.find_by(id:params[:id])
     review.update(comments: params[:comments])
-    redirect "/books/#{book.id}"
+    redirect "/users/#{user.id}"
   end 
 
   #deletes review
